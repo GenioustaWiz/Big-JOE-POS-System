@@ -1,0 +1,56 @@
+
+
+.x{
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.navbar {
+  margin-bottom: 0 auto;
+  background: rgba(76, 175, 80, 0.3); /* Green background with 30% opacity */
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto; /* 1fr gives LOGO advantage of bigger space*/
+  grid-template-areas: " menus logo toggler";
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.logo- {
+  grid-area: logo;
+  
+  display: flex;
+  margin: 0 auto; /* For making LOGO Centered*/
+  width: 60px;
+  justify-content: center;
+  padding-bottom:0px;
+  
+}
+.logo- a{
+  background-color: aliceblue;
+
+}
+.menus {
+  
+  grid-area: menus;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.menus * {
+  padding: 10px;
+  padding-bottom:0px;
+}
+
+.toggler {
+  grid-area: toggler;
+}
+.toggler .auth{
+  text-align: center;
+}
+
+
+/* Nav Drop Down CSS */
+.dropdown a{
+  color: rgb(26, 32, 32);
+}

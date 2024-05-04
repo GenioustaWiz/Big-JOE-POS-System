@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/main_p.css' %}" type="text/css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock css %}
+
+{% block content %}
+
+<div class="welcome">
+    <h1 style= 'text-align: center;'> Welcome to Fruitin management system </h1>
+  </div>
+<div class=" main_p main-part">
+    <div class="cpanel cpanel-green" id="sales2d">
+      <div class="icon-part">
+        <i class="fa fas fa-shopping-basket" aria-hidden="true"></i> <br>
+        <small>Sales</small>
+        <p>$985</p>
+      </div>
+      <div class="card-content-part">
+        <a href="#">More Details</a> 
+      </div>
+    </div>
+    
+    <div class="cpanel cpanel-orange" id="customers">
+      <div class="icon-part">
+        <i class="fa fa-users" aria-hidden="true"></i> <br>
+        <small>Customers</small>
+        <p>985</p>
+      </div>
+      <div class="card-content-part">
+        <a href="#">More Details</a> 
+      </div>
+    </div>
+    <div class="cpanel cpanel-blue" id="partners">
+      <div class="icon-part">
+        <i class="fa fa-users" aria-hidden="true"></i> <br>
+        <small>Partners</small>
+        <p>985</p>
+      </div>
+      <div class="card-content-part">
+        <a href="#">More Details</a> 
+      </div>
+    </div>
+    <div class="cpanel cpanel-red" id="products">
+      <div class="icon-part">
+        <i class="fa fa-tasks" aria-hidden="true"></i> <br>
+        <small>Products</small>
+        <p>985</p>
+      </div>
+      <div class="card-content-part">
+        <a href="#">More Details</a> 
+      </div>
+    </div>
+</div>
+<div class='item c_activities'> <!-- curent act -->
+  <div id="r_transactions" >
+
+    </div>
+  <div id="activities" >
+
+    </div>
+  </div>
+
+{% endblock content %}

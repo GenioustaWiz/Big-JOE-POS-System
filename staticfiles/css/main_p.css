@@ -1,0 +1,42 @@
+.main_p{
+  display: grid;
+  height: 200px;
+  grid-template-areas: "one two three four";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 50px;
+}
+
+#sales2d{
+  grid-area: one ;
+  background-color: red;
+}
+#customers{
+  grid-area: two ;
+  background-color: black;
+}
+#partners{
+  grid-area: three ;
+  background-color:green;
+}
+#products{
+  grid-area: four ;
+  background-color: blue;
+}
+
+.c_activities{
+  display: grid;
+  height: 350px;
+  grid-template-areas: "sone stwo";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 30px;
+}
+#r_transactions{
+  grid-area: sone ;
+  background-color: pink;
+}
+#activities{
+  grid-area: stwo ;
+  background-color: red;
+}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/grid2.css' %}" type="text/css">
+
+{% endblock css %}
+
+{% block content %}
+
+<div class="item product"  >
+<div class="item p_enter" >
+    <p class="alert alert-warning text-center">Register Employees</p>
+    <div class="reg" style="display: flex;">
+    <div class='container mt-3 one'>
+        <form method="POST" > 
+      
+        <div class="form-group mb-3"> 
+            <label>Full Name</label>
+
+        </div>
+        <div class="form-group mb-3">
+            <label>User Name</label>
+        </div> 
+        <div class="form-group mb-3"> 
+            <label>Phone</label>
+
+        </div>
+        <div class="form-group mb-3"> 
+            <label>National ID</label>
+        </div>
+        <div class="form-group mb-3"> 
+            <label>Admin</label>
+        </div>
+        <div class="form-group mb-3"> 
+            <label>Password</label>
+        </div>
+        <div class="form-group mb-3"> 
+            <label>Password(Again)</label>
+        </div>
+        
+    </form>
+        
+    </div>
+    <div class='container mt-3 two'><form method="POST" > 
+        
+        {% csrf_token %}
+        <div class="form-group mb-3"> 
+            {{form.fullname}}
+
+        </div>
+        <div class="form-group mb-3">
+            {{form.username}}
+        </div> 
+        <div class="form-group mb-3"> 
+            {{form.phone_no}}
+
+        </div>
+        <div class="form-group mb-3"> 
+            {{form.id_no}}
+        </div>
+        <div class="form-group mb-3"> 
+            {{form.is_admin}}
+        </div>
+        <div class="form-group mb-3"> 
+            {{form.password1}}
+        </div>
+        <div class="form-group mb-3"> 
+            {{form.password2}}
+        </div>
+        {% if form %}
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Signup</button>
+        </div>
+        {% endif %}
+    </form>
+        
+    </div>
+  
+  </div>
+  </div>
+   
+<div class="item p_table">
+    <div class='container mt-3'>
+        <div>
+            <table class='table table-striped '>
+                <thead class='table-dark'>
+                   <th scope='col'>#</th>
+                   <th scope='col'>Full Name</th>
+                   <th scope='col'>User Name</th>
+                   <th scope='col'>Mobile No</th>
+                   <th scope='col'>Administrator</th>
+                   <th scope='col'> <a href="{% url 'signup' %}" class='btn btn-outline-success'><i class='fa fa-plus'></i> Add New</a></th>
+                </thead>
+                  <tbody>
+                {% for emp in employees %}<!-- users when using request-->
+                    <tr>
+                    <th scope="row">{{emp.id}}</th>
+                    <td>{{emp.fullname}}</td>
+                    <td>{{emp.username}}</td>
+                    <td>{{emp.Phone}}</td>
+                    <td>{{emp.is_admin}}</td>
+                    <td>
+                       <a href="{% url 'update' emp.id %}"><i class='fa fa-pencil-square-o edit'></i></a> 
+                       <a href="{% url 'delete' emp.id %}"><i class='fa fa-trash'></i></a> 
+                    </td>
+                  </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+
+        </div>
+
+       
+    </div>
+
+</div>
+  
+</div>
+{% endblock content %}

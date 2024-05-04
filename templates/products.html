@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/grid2.css' %}" type="text/css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock css %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+        <p id = "div" class="alert alert-success text-center " style="padding: 0px; margin: 0 auto;">{{message}}</p> 
+{% endfor %}
+{% endif %} 
+     
+<div class="item product">
+<div class="item p_enter">
+    {% if edit_item %}
+    <p class="alert alert-warning text-center">Edit Product</p>
+    <div class="reg" style="display: flex;">
+    
+        <div class='container mt-3 '>
+        <form method="POST" action="{%url 'update_item' edit_item.id%}"> 
+            {% csrf_token %}
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" value="{{edit_item.name}}" name='name' placeholder="Enter Item Name">
+            </div>
+            <div class="form-group inp">
+                <input type='text' class="form-control form-control-sm"  value="{{edit_item.cost_price}}" name='cost_price' placeholder="Cost price">
+            </div> 
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" value="{{edit_item.selling_price}}" name='selling_price' placeholder="Enter Selling price">
+            </div>
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" value="{{edit_item.quantity}}" name='quantity' placeholder="Enter Quantity">
+            </div>
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" value="{{edit_item.product_type}}" name='product_type' placeholder="Enter Product type">
+            </div>
+            <div class="text-center">
+                   <button type="submit" class="btn btn-success">UPDATE</button>
+            </div>
+        </form>
+    </div>
+ </div>
+         {% else %}
+        <p class="alert alert-warning text-center">Register Product</p>
+    <div class="reg" style="display: flex;">
+       
+        <div class='container mt-3'>
+        <form method="POST" action="{%url 'add_item'%}"> 
+            {% csrf_token %}
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm  " name='name' placeholder="Enter Item Name">
+            </div>
+            <div class="form-group inp">
+                <input type='text' class="form-control form-control-sm" name='cost_price' placeholder="Cost price">
+            </div> 
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" name='selling_price' placeholder="Enter Selling price">
+            </div>
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" name='quantity' placeholder="Enter Quantity">
+            </div>
+            <div class="form-group inp"> 
+                <input type='text' class="form-control form-control-sm" name='product_type' placeholder="Enter Product type">
+            </div>
+            <div class="text-center"> 
+                <button type="submit" class="btn btn-success" onClick = "GFG_Fun()">SAVE</button>
+            </div>
+        </form>
+        </div>
+    </div>  
+            {% endif %}
+  </div>
+  
+<div class="item p_table d-flex flex-column align-items-center">
+    <div class='container mt-3'>
+       
+        <form class="form-inline d-flex align-items-center flex-row ">
+            <input class="form-control form-control-sm mr-sm-2 col-10" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
+          </form>
+       
+        </div>
+        <div class='container mt-3 '>
+            <table class="table table-success table-striped">
+                <thead class='table-dark'>
+                  <tr>
+                    <th scope="col">Sr.no</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Cost price</th>
+                    <th scope="col">Selling price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Product type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in item_list %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.cost_price}}</td>
+                    <td>{{i.selling_price}}</td>
+                    <td>{{i.quantity}}</td>
+                    <td>{{i.product_type}}</td>
+                    <td>
+                        <a href="{% url 'edit_item' i.id %}"><i class='fa fa-pencil-square-o edit'></i></a> 
+                       <a href="{% url 'delete_item' i.id %}"><i class='fa fa-trash'></i></a> 
+                    </td> 
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+        </div>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if item_list.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ item_list.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ item_list.number }} of {{ item_list.paginator.num_pages }}.
+                </span>
+        
+                {% if item_list.has_next %}
+                    <a style="padding-right: 10px;" href="?page={{ item_list.next_page_number }}">next</a>
+                    
+                    <a href="?page={{ item_list.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+</div>
+  
+</div>
+{% endblock content %}
+{% block js %}
+<script>
+      
+        
+    function GFG_Fun() {
+        setTimeout(function() {
+            $('#div').hidden('fast');
+        }, 1000);
+       
+    }
+</script>
+{% endblock js %}
+

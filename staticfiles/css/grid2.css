@@ -1,0 +1,19 @@
+.product{
+    display: grid;
+    grid-template-columns:repeat(12, 1fr);
+    grid-gap: 10px;
+    
+  }
+  .product .p_enter{
+    grid-column: 1/ span 4;
+       
+  }
+  .product .p_table{
+    grid-column:5/ span 8;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  .reg{
+    display: flex;
+  }

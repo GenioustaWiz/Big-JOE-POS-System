@@ -1,0 +1,141 @@
+<!doctype html> {% load static %}
+<html lang="en" >
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fruitin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  crossorigin="anonymous">
+        
+    <!--Css Style -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" type="text/css">
+   
+
+    <!--Font Link-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <script href="{% static 'js/main.css' %}"></script>
+    {% block css %}
+
+    {% endblock css %}
+    <style>
+      form .inp{
+        padding: 20px;
+      }
+      .mt-3{
+        /*border: 1px solid tomato;*/
+        margin: 0 auto;
+        padding: 2px;
+      }
+      .label-{
+        width: 50%;
+      }
+      .search-form{
+        padding-right: 0px;
+      }
+    .auth a{
+      text-decoration: underline;
+    }
+    a{
+    text-decoration: none;
+    }
+    li {
+      list-style-type: none;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      position: absolute;
+      transition: all 0.5s ease;
+      margin-top:0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      left: 0;
+      display: none;
+    }
+    .dropdown:hover .dropdown-content{
+      display: block;
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="layout-1 " >
+     
+        <nav class="navbar  x">
+          <a class="logo-">
+            <h2>LoGo</h2> 
+          </a>
+          <div class="menus">
+            <div class="dropdown">
+              <a href="#"> Files </a>
+              <ul class="dropdown-content">
+                <li><a href="{% url 'main_index' %}">Home</a></li>
+                <li><a href="#">Report</a></li>
+                <li><a href="{% url 'pos_index' %}">Sales</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="{% url 'logout' %} ">Signout</a></li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <a href="#"> Manage </a>
+              <ul class="dropdown-content">
+                <li><a href="{% url 'employees' %}">Employees</a></li>
+                <li><a href="{% url 'products_index' %}">Products</a></li>
+                <li><a href="{% url 'supplier_index' %}">Companies</a></li> 
+              </ul>
+            </div>
+            <div class="dropdown">
+              <a href="#"> About </a>
+            </div>
+          </div>
+          <div class="toggler">
+            <div class="auth" style="display:flex; padding-top: 10px;">
+              {% if user.is_authenticated %}
+              Hi {{ user.username}}!
+              <p style="padding-left:10px;"><a href="{% url 'logout' %}">Logout</a></p>
+            {% else %}
+            <p style="padding-right:10px;">You are not logged in: </p> <br>
+              <a href="{% url 'login' %}" style="padding-right:10px;">Login</a>
+              <a href="{% url 'signup' %}">Signup</a>
+            
+            {% endif %}
+            </div>
+          </div>
+        </nav>
+       
+        <main class="item ">
+            {% block content %} {% endblock content %}
+        </main>
+     
+      <footer class="item footer ">
+        Copyright © 2021 BigJoe Enterprise
+          <!--<p>Copyright © 2021 Alice &amp; Bob's Farm Stand</p>-->
+      </footer>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    {% block js %}
+
+    {% endblock js %}
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+
+
+.x{
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.navbar {
+  margin-bottom: 0 auto;
+  background: pink;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto; /* 1fr gives LOGO advantage of bigger space*/
+  grid-template-areas: " menus logo toggler";
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.logo {
+  background: green;
+  grid-area: logo;
+  margin: 0 auto; /* For making LOGO Centered*/
+  width: 60px;
+}
+
+.menus {
+  grid-area: menus;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.menus * {
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.toggler {
+  background: lightskyblue;
+  grid-area: toggler;
+}
+
+/* Nav Drop Down CSS */

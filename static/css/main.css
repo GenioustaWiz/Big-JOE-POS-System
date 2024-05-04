@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  
+  
+}
+body{
+  width:100% ;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 0 auto;
+  background: rgba(28, 75, 29, 0.3);
+}
+/*
+.item{
+  
+  border: 1px solid tomato;
+}
+.item2{
+  border: 1px solid rgb(26, 13, 11); 
+}
+.height-50{
+  height: 50vh;
+}/* Layout 1 */
+.layout-1{
+  background: rgba(28, 75, 29, 0.3); /* Green background with 30% opacity */
+display: grid;
+margin: 0 auto;
+padding: 0;
+grid-template-rows: auto 1fr auto;
+grid-gap: 10px;
+}
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px !important;
+  background: rgba(216, 242, 175, 0.3);
+}
+
+table tr td{
+  padding:0px !important;
+}

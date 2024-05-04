@@ -1,0 +1,26 @@
+/*.product{
+    display: grid;
+    grid-template-columns:repeat(12, 1fr);
+    grid-gap: 10px;
+    padding: 0 6px 0 6px;
+    
+  }*/
+.product{
+  display: grid;
+  height: 86vh;
+  grid-template-columns: 300px auto;
+  grid-gap: 10px;
+  padding: 0 6px 0 6px;
+}
+  .product .p_enter{
+    background: rgba(216, 242, 175, 0.3); 
+  }
+  .product .p_table{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background: rgba(216, 242, 175, 0.3);  
+  }
+
+  .reg{
+    display: flex;
+  }

@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/pos.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/table.css' %}" type="text/css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock css %}
+
+{% block content %}
+<div class="item2 Customer-info">
+  <div class="cus-info "><p>Customer Info:</p></div>
+  <form class="form-inline item" >
+    <div class="form-group cus"> 
+      <input type='text' class="form-control form-control-sm" name='name' placeholder="Enter Name">
+  </div>
+  <div class="form-group cus">
+      <input type='text' class="form-control form-control-sm" name='company' placeholder="Company">
+  </div> 
+  <div class="form-group cus"> 
+      <input type='text' class="form-control form-control-sm" name='content_supplied' placeholder="Product supplied">
+  </div>
+  <div class="cus">Mode of Payment: </div> 
+  <div class="form-check cus">
+    <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+    <label class="form-check-label" for="inlineFormCheck">
+      Mpesa
+    </label>
+  </div>
+  <div class="form-check cus">
+    <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+    <label class="form-check-label" for="inlineFormCheck">
+      Cash
+    </label>
+  </div>
+  <div class="form-check cus">
+    <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+    <label class="form-check-label" for="inlineFormCheck">
+      Card
+    </label>
+  </div>
+  <div></div>
+  </form>
+</div>
+<div style="height: 4px;"></div>
+<div class="item pos">
+<div class="item search-p">
+
+ 
+
+  <div class="item2 container table-wrapper table-responsive" style="max-height: 450px;;">
+    <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dom</td>
+            <td>2</td>
+            <td>100</td>
+            <td>energy drink</td>
+        </tr>
+        <tr class="active-row">
+          <td>Dom</td>
+          <td>2</td>
+          <td>100</td>
+          <td>energy drink</td>
+        </tr>
+        <tr>
+          <td>Dom</td>
+          <td>100</td>
+          <td>2</td>
+          <td>200</td>
+          
+        </tr>
+        <tr>
+          <td>Dom</td>
+          <td>100</td>
+          <td>2</td>
+          <td>200</td>
+          
+      </tr>
+      <tr>
+        <td>Dom</td>
+        <td>100</td>
+        <td>2</td>
+        <td>200</td>
+       
+    </tr>
+    <tr>
+      <td>Dom</td>
+      <td>100</td>
+      <td>2</td>
+      <td>200</td>
+      
+  </tr>
+  <tr>
+    <td>Dom</td>
+    <td>100</td>
+    <td>2</td>
+    <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+        <!-- and so on... -->
+    </tbody>
+  </table>
+  </div>
+
+  <div class="item2 s-p-page">
+    Page
+  </div>
+  <div class="item text-center"  style="margin-bottom: 15px;">
+    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Refresh List</button>
+  </div>
+  
+</div>
+<div class="item transaction">
+  <div class='container mt-3 item2'>
+    <form method="POST"> 
+        {% csrf_token %}
+        <div class="form-group inp"> 
+            <input type='text' class="form-control form-control-sm" name='name' placeholder="Enter Name">
+        </div>
+        <div class="form-group inp">
+            <input type='text' class="form-control form-control-sm" name='company' placeholder="Price">
+        </div> 
+        <div class="form-group inp"> 
+            <input type='text' class="form-control form-control-sm" name='content_supplied' placeholder="Quantity">
+        </div>
+        <div class="but-pro-enter">
+        <div class="text-center">
+            <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >ADD</button>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >CLEAR</button>
+      </div>
+    </div>
+    </form>
+</div> 
+
+</div>
+<div class="item cart">
+  <div class="item2 container table-wrapper table-responsive" style="max-height: 400px; padding-left: 50px;">
+  <table class="styled-table">
+    <thead>
+        <tr>
+            <th style="width: 130px;">Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dom</td>
+            <td>100</td>
+            <td>2</td>
+            <td>200</td>
+            <td>  <i class="material-icons close">close</i> </td>
+        </tr>
+        <tr class="active-row">
+          <td>Dom</td>
+          <td>100</td>
+          <td>2</td>
+          <td>200</td>
+          <td>  <i class="material-icons close">close</i> </td>
+        </tr>
+        <tr class="active-row">
+          <td>Dom</td>
+          <td>100</td>
+          <td>2</td>
+          <td>200</td>
+          <td>  <i class="material-icons close">close</i> </td>
+        </tr>
+        <tr>
+          <td>Dom</td>
+          <td>100</td>
+          <td>2</td>
+          <td>200</td>
+          <td>  <i class="material-icons close">close</i> </td>
+      </tr>
+      <tr>
+        <td>Dom</td>
+        <td>100</td>
+        <td>2</td>
+        <td>200</td>
+        <td>  <i class="material-icons close">close</i> </td>
+    </tr>
+    <tr>
+      <td>Dom</td>
+      <td>100</td>
+      <td>2</td>
+      <td>200</td>
+      <td>  <i class="material-icons close">close</i> </td>
+  </tr>
+  <tr>
+    <td>Dom</td>
+    <td>100</td>
+    <td>2</td>
+    <td>200</td>
+    <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+<tr>
+  <td>Dom</td>
+  <td>100</td>
+  <td>2</td>
+  <td>200</td>
+  <td>  <i class="material-icons close">close</i> </td>
+</tr>
+        <!-- and so on... -->
+    </tbody>
+    </table>
+    </div>
+    <div class=" container cart-ch item">
+      <div class="item2"> Total Items:</div>
+      <div class="item2"> Total Cost:</div>
+      <div class="item2"><button type="submit" class="btn btn-success" style="padding: 0px;">Checkout</button></div>
+    
+      <div class="item2">Amount Given: </div>
+      <div class="item2"> Change:</div>
+      <div class="item2"><button type="submit" class="btn btn-success" style="padding: 0px;">Print Receipt</button></div>
+    </div>
+ </div>
+</div>
+{% endblock content %}
